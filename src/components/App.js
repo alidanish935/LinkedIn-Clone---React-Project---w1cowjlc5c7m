@@ -9,24 +9,19 @@ import NotFound from './NotFound';
 import Signup from './Signup';
 const App = () => {
 
-
   return (
     <div id="main">
       <BrowserRouter>
-       
         <Routes>
-          
-          
-          <Route path='/' element={<Login/>}/>
           <Route path='/signup' element={<Signup/>}/>
           <Route path='/home' element={<Home/>}/>
+          <Route path='/login' element={<Login/>}/>
+          <Route path='/' element={<Login/>}/>
           <Route path='/*' element={<NotFound/>}/>
-          
         </Routes>
       </BrowserRouter>
     </div>
   )
 }
-
 
 export default App;

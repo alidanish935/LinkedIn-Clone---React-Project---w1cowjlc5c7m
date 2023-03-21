@@ -32,7 +32,7 @@ const Signup = () => {
             alert('Registered Successfully.............')
             let temp =JSON.parse(localStorage.getItem('users'))||[]
             localStorage.setItem('users',JSON.stringify([...temp,formdata]))
-            localStorage.setItem('name', formdata.name)
+            //localStorage.setItem('name', formdata.name)
             navigate('/')
             
 
@@ -63,7 +63,7 @@ const Signup = () => {
                     </div>
 
                     <div className='signup_input'>
-                        <input type='text' name='email' className='loginpage__text'  onChange={updateFn} placeholder='Mobile Number or Email' /><br />
+                        <input type='text' name='email' className='loginpage__text'  onChange={updateFn} placeholder='Email' /><br />
                         <input type='text' name='name' className='loginpage__text' onChange={updateFn} placeholder='Full Name' /><br />
                         <input type='text' className='loginpage__text' placeholder='username' /><br />
                         <input type='password' name='password' className='loginpage__text' onChange={updateFn} placeholder='Password' /><br />

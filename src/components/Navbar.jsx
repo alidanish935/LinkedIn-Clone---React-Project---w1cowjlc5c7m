@@ -1,10 +1,16 @@
 import React from 'react'
 import './Navbar.css'
 import smallLogo from '../Images/smallLogo.png'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Navbar = () => {
-  const name = localStorage.getItem("name")
+  const email = localStorage.getItem("loggedUser");
+  const navigate = useNavigate();
+
+  const logoutFn = () => {
+    localStorage.setItem('loggedUser', null);
+    navigate('/login');
+  }
   return (
     <div className='container'>
 
@@ -21,13 +27,14 @@ const Navbar = () => {
             <i className="fa fa-home faIconsIcon"><p className='homeIcon'>Home</p></i>
 
 
-            <i className="fa fa-users faIcons"><p className='networkIcon'>My Network</p></i>
+            {/* <i className="fa fa-users faIcons"><p className='networkIcon'>My Network</p></i>
         
           <i className="fa fa-briefcase faIcons" ><p className='jobsIcon'>Jobs</p></i>
           <i className="fa fa-commenting-o faIcons" ><p className='msgIcon'>Messaging</p></i>
           <i className="fa fa-bell-o faIcons" ><p className='notificationsIcon'>Notifications</p></i>
-          <i className="fa fa-th faIcons"><p>Work</p></i>
-          <i className="fa fa-user-circle-o faIcons" ><p className='meIcon'>{name}</p></i>
+          <i className="fa fa-th faIcons"><p>Work</p></i> */}
+          <i className="fa fa-user-circle-o faIcons" ><p className='meIcon'>{email}</p></i>
+          <button onClick={logoutFn}>Logout</button>
           {/* <Link to='collection' ></Link> */}
 
         </div>

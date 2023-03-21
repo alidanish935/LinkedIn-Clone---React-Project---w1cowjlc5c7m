@@ -5,11 +5,12 @@ const Content = () => {
     const [input, setInput] = useState('')
     const [imgInput, setImgInput] = useState('')
     const [cmntinput, setCmntInput] = useState('')
-    const [post, setPost] = useState([])
+    // const [post, setPost] = useState([])
 
-    const name = localStorage.getItem("name")
-    console.log('cmntinput......', cmntinput)
-    console.log('imginput......', imgInput)
+    const email = localStorage.getItem("loggedUser");
+    const post = JSON.parse(localStorage.getItem('posts'));
+    // console.log('cmntinput......', cmntinput)
+    // console.log('imginput......', imgInput)
     const submitCmntFn = (index) => {
         let temparr = [...post]
         temparr[index].coment.push(cmntinput)
@@ -18,9 +19,26 @@ const Content = () => {
 
     const submitPost = () => {
         let obj = { msg: input, clicked: false, coment: [], img: imgInput }
-        setPost([obj, ...post])
-        setInput('')
-
+        let post = {
+            postid: '',
+            userid: '',
+            content: '',
+            likecount: 0,
+            commentcount: 0,
+            image: ''
+        }
+        post.postid = parseInt(Math.random() * 10000000);
+        post.userid = email;
+        post.content = input;
+        post.likecount = 0;
+        post.commentcount = 0;
+        post.image = imgInput;
+        let temp = JSON.parse(localStorage.getItem('posts')) || [];
+        localStorage.setItem('posts', JSON.stringify([...temp, post]))
+        // localStorage.setItem('posts', post)
+        // setPost([obj, ...post])
+        setInput('');
+        setImgInput('');
     }
 
     const clickFn = (index) => {
@@ -47,11 +65,11 @@ const Content = () => {
                         <input type="search" className='searchInput' placeholder=' Start Post' value={input} onChange={e => setInput(e.target.value)} />
                         <button className='postBtn' onClick={submitPost}>Add Post</button>
                     </div>
-                    <br></br>
+                    {/* <br></br>
                     <i className="fa fa-picture-o photoIcon"><p className='photos'>Photos</p></i>
                     <i className="fa fa-video-camera videosIcon" ><p className='video'>Video</p></i>
                     <i className="fa fa-calendar eventsIcon" ><p className='events'>Events</p></i>
-                    <i className="fa fa-pencil-square-o articleIcon"><p className='article'>Article</p></i>
+                    <i className="fa fa-pencil-square-o articleIcon"><p className='article'>Article</p></i> */}
                 </div>
                 <div className='PostSharinp'>
                     URL :- <input type="search" className='searchInput' placeholder='Post image ' onChange={e => setImgInput(e.target.value)} />
@@ -59,24 +77,24 @@ const Content = () => {
                 </div>
                 <hr></hr>
                 <div>
-                    {post.map((item, index) => (
+                    {post && post.map((item, index) => (
                         <div>
                             <div className='postDiv'>
                                 <i className="fa fa-user-circle-o postME" ></i>
-                                <h2>{name}</h2>
+                                <h2>{item.userid}</h2>
                                 {/* <p className='testingPara'>This is Testing Para</p> */}
                                 <hr></hr>
-                                <h3 className='testingHeading'>{item.msg}</h3>
-                               {
-                                item.img && <div className='postImg flex justify-center '> <img src={item.img}  />  </div>
-                               }
-                                
+                                <h3 className='testingHeading'>{item.content}</h3>
+                                {
+                                    item.image && <div className='postImg flex justify-center '> <img src={item.image} style={{ width: '200px' }} />  </div>
+                                }
+
                                 <hr></hr>
                                 <i className="fa fa-thumbs-o-up likeArrow"></i> <i className="fa fa-thumbs-o-down dislikeArrow"></i>
                                 <i className="fa fa-comments commentArrow" onClick={() => { clickFn(index) }}><span>Comment</span></i>
-                                <i className="fa fa-retweet commentArrow"><span>Repost</span></i>
+                                {/* <i className="fa fa-retweet commentArrow"><span>Repost</span></i>
                                 <i className="fa fa-paper-plane commentArrow" ><span>Send</span></i>
-                                <i className="fa fa-trash commentArrow" onClick={() => { deletePost(index) }} ><span>Delete</span></i>
+                                <i className="fa fa-trash commentArrow" onClick={() => { deletePost(index) }} ><span>Delete</span></i> */}
 
                             </div>
                             {
