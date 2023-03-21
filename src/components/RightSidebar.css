@@ -1,0 +1,64 @@
+.RightSideBar{
+    height: 500px;
+    width: 100%;
+}
+@media screen and (max-width: 680px) {
+    .RightSideBar {display: none;}
+    
+  }
+.upperRight{
+    height: 200px;
+    width: 75%;
+    margin: 38px 30px 0px 20px;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: aliceblue; 
+}
+.upperRight h5{
+    margin: 10px 0px 10px 10px;
+}
+.upperRight p{
+    margin: 10px 0px 3px 10px;
+
+}
+.upperRight button{
+    height: 35px;
+    width: 30%;
+    border-radius: 20px;
+    margin: 0px 0px 10px 10px;
+    background-color: #fff;
+
+}
+.upperRight a{
+    font-size: 13px;
+    text-decoration: none;
+    margin: 0px 0px 10px 10px;
+}
+.middleRight{
+    height: 200px;
+    width: 75%;
+    margin: 5px 30px 0px 20px;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: aliceblue; 
+}
+.middleRight img{
+    width: 95%;
+    height: 190px;
+    margin: 5px 7px 7px 6px;
+}
+.lowerRight{
+    height: 100px;
+    width: 75%;
+    margin: 5px 30px 0px 20px;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: aliceblue; 
+}
+.lowerRight h4{
+    margin: 15px 10px 5px 10px;
+    text-align: center;
+}
+.lowerRight a{
+    margin: 15px 10px 5px 50px;
+}

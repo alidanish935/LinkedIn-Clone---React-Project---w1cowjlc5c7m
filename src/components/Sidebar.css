@@ -1,0 +1,71 @@
+.leftSideBar{
+    position: sticky;
+    height: 500px;
+    width: 100%;
+    font-family: sans-serif;
+}
+/* @media screen and (max-width: 480px) {
+    .leftSideBar {display: none;}
+    
+  } */
+.MiddleBar{
+    height: 1000px;
+    width: 50%;
+}
+
+.upperDiv{
+    height: 330px;
+    width: 65%;
+    margin: 40px 30px 0px 85px;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: aliceblue;   
+}
+.upperDiv h3{
+    margin: 20px 20px 30px 40px;
+}
+ .connections{
+    margin: 10px 0px 0px 10px;
+}
+.growYour{
+    margin: 10px 0px 10px 10px;
+}
+.upperDiv .access{
+    margin: 15px 0px 15px 10px;
+    font-size: 13px;
+}
+.upperDiv .bookmark{
+    margin: 10px 0px 0px 10px;
+}
+.upperDiv h3{
+    margin-left: 13px;
+}
+.camera{
+    height: 65px;
+    width: 30%;
+    border-radius: 50%;
+    background-color: white;
+    border: 1px solid aliceblue;
+    margin: 20px 0px 10px 70px;
+}
+
+.cameraIcon{
+    font-size: 25px;
+    margin: 20px 0px 0px 17px;
+}
+.lowerDiv{
+    height: 280px;
+    width: 65%;
+    margin: 10px 30px 0px 85px;
+    border: 1px solid rgb(202, 212, 188);
+    border-radius: 10px;
+    background-color: aliceblue; 
+}
+.lowerDiv p{
+    margin: 18px 0px 10px 10px;
+    font-family: sans-serif;
+}
+.lowerDiv h5{
+    color: #0A66C2;
+    margin: 15px 0px 10px 10px;
+}
