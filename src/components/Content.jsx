@@ -5,6 +5,7 @@ const Content = () => {
     const [input, setInput] = useState('')
     const [imgInput, setImgInput] = useState('')
     const [cmntinput, setCmntInput] = useState('')
+    const [showCommentPanel, setShowCommentPanel] = useState(false);
     // const [post, setPost] = useState([])
 
     const email = localStorage.getItem("loggedUser");
@@ -12,13 +13,27 @@ const Content = () => {
     // console.log('cmntinput......', cmntinput)
     // console.log('imginput......', imgInput)
     const submitCmntFn = (index) => {
-        let temparr = [...post]
-        temparr[index].coment.push(cmntinput)
-        setPost(temparr)
+        // let temparr = [...post]
+        // temparr[index].coment.push(cmntinput)
+        // setPost(temparr)
+        let comment = {
+            commentid: '',
+            postid: '',
+            userid: '',
+            content: ''
+        }
+        post.postid = parseInt(Math.random() * 10000000);
+        post.userid = email;
+        post.content = input;
+        post.likecount = 0;
+        post.commentcount = 0;
+        post.image = imgInput;
+        let temp = JSON.parse(localStorage.getItem('posts')) || [];
+        localStorage.setItem('posts', JSON.stringify([...temp, post]))
     }
 
     const submitPost = () => {
-        let obj = { msg: input, clicked: false, coment: [], img: imgInput }
+        //let obj = { msg: input, clicked: false, coment: [], img: imgInput }
         let post = {
             postid: '',
             userid: '',
@@ -44,7 +59,8 @@ const Content = () => {
     const clickFn = (index) => {
         const list = [...post]
         console.log('list......', list)
-        list[index].clicked = true;
+        // list[index].clicked = true;
+        setShowCommentPanel(!showCommentPanel)
         setPost([...list])
     }
     const deletePost = (index) => {
@@ -52,7 +68,19 @@ const Content = () => {
         const temp = post
         temp.splice(index, 1)
         setPost([...temp])
+    }
 
+    const likeFn = (postid) => {
+        console.log('inside like fn - ', postid)
+        const posts = JSON.parse(localStorage.getItem('posts'));
+        const newPosts = posts.map((item) => {
+            if(item.postid === postid) {
+                item.likecount = item.likecount + 1
+            }
+            return item;
+        })
+        console.log(newPosts)
+        localStorage.setItem('posts', JSON.stringify(newPosts));
     }
 
     return (
@@ -90,7 +118,9 @@ const Content = () => {
                                 }
 
                                 <hr></hr>
-                                <i className="fa fa-thumbs-o-up likeArrow"></i> <i className="fa fa-thumbs-o-down dislikeArrow"></i>
+                                <i className="fa fa-thumbs-o-up likeArrow" onClick={() => likeFn(item.postid)}></i>
+                                <span>{item.likecount}</span>
+                                {/* <i className="fa fa-thumbs-o-down dislikeArrow"></i> */}
                                 <i className="fa fa-comments commentArrow" onClick={() => { clickFn(index) }}><span>Comment</span></i>
                                 {/* <i className="fa fa-retweet commentArrow"><span>Repost</span></i>
                                 <i className="fa fa-paper-plane commentArrow" ><span>Send</span></i>
@@ -98,8 +128,9 @@ const Content = () => {
 
                             </div>
                             {
-                                item.clicked && <div className='commentDiv '>
-                                    <input onChange={(e) => setCmntInput(e.target.value)} placeholder='Write your comment here' /><button className='buttonCmt' onClick={() => submitCmntFn(index)}>comment</button>
+                                showCommentPanel && <div className='commentDiv '>
+                                    <input onChange={(e) => setCmntInput(e.target.value)} placeholder='Write your comment here' />
+                                    <button className='buttonCmt' onClick={() => submitCmntFn(index)}>Comment</button>
                                     {
                                         item.coment.map((val) => (
                                             <div>
