@@ -7,14 +7,14 @@ import Sidebar from './Sidebar'
 const Home = () => {
   return (
     <div>
-        <Navbar/>
-       <div className='flex space-between'>
-        <Sidebar/>
-        <Content/>
-        <RightSidebar/>
-       </div>
+      <Navbar />
+      <div className='flex space-between'>
+        <Sidebar />
+        <Content />
+        <RightSidebar />
+      </div>
 
-        
+
     </div>
   )
 }

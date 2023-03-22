@@ -7,15 +7,16 @@ const Content = () => {
     const [imgInput, setImgInput] = useState('')
     const [cmntinput, setCmntInput] = useState('')
     const [showCommentPanel, setShowCommentPanel] = useState(false);
-    const [postlike, setPostLIke] = useState(false)
+    const [postlike, setPostLIke] = useState([])
 
     const email = localStorage.getItem("loggedUser");
     const post = JSON.parse(localStorage.getItem('posts'));
-    console.log('mainpost......', post)
-    const submitCmntFn = (id, index) => {
-        let temparr = JSON.parse(localStorage.getItem('posts')) || [];
-        console.log('index....', index, 'comentcontentpost.....', temparr)
-        console.log('cmntinput...', cmntinput)
+    // console.log('cmntinput......', cmntinput)
+    // console.log('imginput......', imgInput)
+    const submitCmntFn = (index) => {
+        // let temparr = [...post]
+        // temparr[index].coment.push(cmntinput)
+        // setPost(temparr)
         let comment = {
             commentid: '',
             postid: '',
@@ -71,29 +72,41 @@ const Content = () => {
         setShowCommentPanel(!showCommentPanel)
 
     }
-    useEffect(() => {
-        console.log("useeffecSetShowCommentPanel........", showCommentPanel)
+        const deletePost = (index) => {
+            const temp = JSON.parse(localStorage.getItem('posts')) || []
+            temp.splice(index, 1)
+            localStorage.setItem('posts', JSON.stringify([...temp]))
+            setStatus(!status)
+        }
+        // const likeFn = (postid) => {
+        //     console.log('inside like fn - ', postid)
+        //     const posts = JSON.parse(localStorage.getItem('posts'));
+        //     const newPosts = posts.map((item) => {
+        //         if (item.postid === postid) {
+        //             item.likecount = item.likecount + 1
+        //         }
+        //         return item;
+        //     })
+        //     console.log(newPosts)
+        //     localStorage.setItem('posts', JSON.stringify(newPosts));
+        // }
+        // useEffect(() => {
+        //     console.log("useeffecSetShowCommentPanel........", showCommentPanel)
 
-    })
-    const deletePost = (index) => {
-        const temp = JSON.parse(localStorage.getItem('posts')) || []
-        temp.splice(index, 1)
-        localStorage.setItem('posts', JSON.stringify([...temp]))
-        setStatus(!status)
-    }
+        // })
 
-    const likeFn = (postid) => {
-        const posts = JSON.parse(localStorage.getItem('posts'));
-        const newPosts = posts.map((item) => {
-            if (item.postid === postid) {
-                item.likecount = item.likecount + 1
-            }
-            return item;
-        })
-        localStorage.setItem('posts', JSON.stringify(newPosts));
-        setPostLIke(!postlike)
-    }
-
+        const likeFn = (postid) => {
+            const posts = JSON.parse(localStorage.getItem('posts'));
+            const newPosts = posts.map((item) => {
+                if (item.postid === postid) {
+                    item.likecount = item.likecount + 1
+                }
+                return item;
+            })
+            localStorage.setItem('posts', JSON.stringify(newPosts));
+            setPostLIke(!postlike)
+        }
+    
     return (
         <div>
             <div className='MiddleBar'>
@@ -124,8 +137,8 @@ const Content = () => {
                                 <hr></hr>
                                 <i className="fa fa-thumbs-o-up likeArrow" onClick={() => likeFn(item.postid)}></i>
                                 <span>{item.likecount}</span>
-                                <i className="fa fa-comments commentArrow" onClick={() => { clickFn(index) }}><span>Comment</span></i>
-                                <i className="fa fa-trash commentArrow" onClick={() => { deletePost(index) }} ><span>Delete</span></i>
+                                <i className="fa fa-comments commentArrow" onClick={() => clickFn(index)}><span>Comment</span></i>
+                                <i className="fa fa-trash commentArrow" onClick={() => deletePost(index)} ><span>Delete</span></i>
 
                             </div>
                             {
