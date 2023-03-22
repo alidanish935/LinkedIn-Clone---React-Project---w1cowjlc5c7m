@@ -11,12 +11,8 @@ const Content = () => {
 
     const email = localStorage.getItem("loggedUser");
     const post = JSON.parse(localStorage.getItem('posts'));
-    // console.log('cmntinput......', cmntinput)
-    // console.log('imginput......', imgInput)
+   
     const submitCmntFn = (index) => {
-        // let temparr = [...post]
-        // temparr[index].coment.push(cmntinput)
-        // setPost(temparr)
         let comment = {
             commentid: '',
             postid: '',
@@ -54,20 +50,14 @@ const Content = () => {
         post.comentpanel = false
         let temp = JSON.parse(localStorage.getItem('posts')) || [];
         localStorage.setItem('posts', JSON.stringify([post, ...temp]))
-        console.log('submitpost....', post)
         setInput('');
         setImgInput('');
     }
 
     const clickFn = (index) => {
         let list = JSON.parse(localStorage.getItem('posts')) || []
-        console.log('list......', list)
-        console.log('listcmtpanelstatusbefore......', list[index].comentpanel)
         list[index].comentpanel = !list[index].comentpanel;
-        console.log('listcmtpanelstatus......', list[index].comentpanel)
         localStorage.setItem('posts', JSON.stringify([...list]))
-        console.log('post......', list)
-        console.log("setShowCommentPanel........", showCommentPanel)
         setStatus(!status)
         setShowCommentPanel(!showCommentPanel)
 
@@ -78,22 +68,7 @@ const Content = () => {
             localStorage.setItem('posts', JSON.stringify([...temp]))
             setStatus(!status)
         }
-        // const likeFn = (postid) => {
-        //     console.log('inside like fn - ', postid)
-        //     const posts = JSON.parse(localStorage.getItem('posts'));
-        //     const newPosts = posts.map((item) => {
-        //         if (item.postid === postid) {
-        //             item.likecount = item.likecount + 1
-        //         }
-        //         return item;
-        //     })
-        //     console.log(newPosts)
-        //     localStorage.setItem('posts', JSON.stringify(newPosts));
-        // }
-        // useEffect(() => {
-        //     console.log("useeffecSetShowCommentPanel........", showCommentPanel)
-
-        // })
+       
 
         const likeFn = (postid) => {
             const posts = JSON.parse(localStorage.getItem('posts'));
@@ -145,13 +120,7 @@ const Content = () => {
                                 item.comentpanel && <div className='commentDiv '>
                                     <input onChange={(e) => setCmntInput(e.target.value)} placeholder='Write your comment here' />
                                     <button className='buttonCmt' onClick={() => submitCmntFn(item.id, index)}>Comment</button>
-                                    {
-                                        // item.coment.map((val) => (
-                                        //     <div>
-                                        //         <i className="fa fa-user-circle-o comntMe"><h5 className='h5'>{email}</h5><p>{val}</p></i>
-                                        //     </div>
-                                        //  ))
-                                    }
+                                  
                                 </div>
                             }
                         </div>

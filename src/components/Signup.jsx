@@ -60,8 +60,7 @@ const Signup = () => {
                     </div>
                     <div className='signup_input'>
                         <input type='text' name='email' className='loginpage__text' onChange={updateFn} placeholder='Email' /><br />
-                        <input type='text' name='name' className='loginpage__text' onChange={updateFn} placeholder='Name' /><br />
-                        {/* <input type='text' className='loginpage__text' placeholder='username' /><br /> */}
+                        <input type='text' name='name' className='loginpage__text' onChange={updateFn} placeholder='User Name' /><br />
                         <input type='password' name='password' className='loginpage__text' onChange={updateFn} placeholder='eg. Abcd1234@' /><br />
                     </div>
                     <div className='signup_info'>
