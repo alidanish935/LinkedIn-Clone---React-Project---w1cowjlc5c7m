@@ -1,6 +1,10 @@
 .RightSideBar{
+    position: fixed;
+    /* left: 450px; */
+    right: 0;
     height: 500px;
-    width: 100%;
+    width:20%;
+    margin-top: 100px;
 }
 @media screen and (max-width: 680px) {
     .RightSideBar {display: none;}

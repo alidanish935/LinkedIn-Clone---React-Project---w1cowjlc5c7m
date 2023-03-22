@@ -3,38 +3,95 @@ import './Content.css'
 
 const Content = () => {
     const [input, setInput] = useState('')
+    const [status, setStatus] = useState(false)
     const [imgInput, setImgInput] = useState('')
     const [cmntinput, setCmntInput] = useState('')
-    const [post, setPost] = useState([])
+    const [showCommentPanel, setShowCommentPanel] = useState(false);
+    const [postlike, setPostLIke] = useState(false)
 
-    const name = localStorage.getItem("name")
-    console.log('cmntinput......', cmntinput)
-    console.log('imginput......', imgInput)
-    const submitCmntFn = (index) => {
-        let temparr = [...post]
-        temparr[index].coment.push(cmntinput)
-        setPost(temparr)
+    const email = localStorage.getItem("loggedUser");
+    const post = JSON.parse(localStorage.getItem('posts'));
+    console.log('mainpost......', post)
+    const submitCmntFn = (id, index) => {
+        let temparr = JSON.parse(localStorage.getItem('posts')) || [];
+        console.log('index....', index, 'comentcontentpost.....', temparr)
+        console.log('cmntinput...', cmntinput)
+        let comment = {
+            commentid: '',
+            postid: '',
+            userid: '',
+            content: ''
+        }
+        // parseInt(Math.random() * 10000000)
+        comment.postid = id;
+        comment.userid = email;
+        comment.content = cmntinput;
+        comment.likecount = 0;
+        comment.commentcount = 0;
+        comment.image = imgInput;
+        let temp = JSON.parse(localStorage.getItem('comment')) || [];
+        localStorage.setItem('comment', JSON.stringify([...temp, comment]))
+        console.log('comentcontentposttemp.....', temp)
     }
 
     const submitPost = () => {
-        let obj = { msg: input, clicked: false, coment: [], img: imgInput }
-        setPost([obj, ...post])
-        setInput('')
-
+        let post = {
+            postid: '',
+            userid: '',
+            content: '',
+            likecount: 0,
+            commentcount: 0,
+            image: '',
+            comentpanel: false
+        }
+        post.postid = parseInt(Math.random() * 10000000);
+        post.userid = email;
+        post.content = input;
+        post.likecount = 0;
+        post.commentcount = 0;
+        post.image = imgInput;
+        post.comentpanel = false
+        let temp = JSON.parse(localStorage.getItem('posts')) || [];
+        localStorage.setItem('posts', JSON.stringify([post, ...temp]))
+        console.log('submitpost....', post)
+        setInput('');
+        setImgInput('');
     }
 
     const clickFn = (index) => {
-        const list = [...post]
+        let list = JSON.parse(localStorage.getItem('posts')) || []
         console.log('list......', list)
-        list[index].clicked = true;
-        setPost([...list])
-    }
-    const deletePost = (index) => {
-        console.log(index)
-        const temp = post
-        temp.splice(index, 1)
-        setPost([...temp])
+        console.log('listcmtpanelstatusbefore......', list[index].comentpanel)
+        list[index].comentpanel = !list[index].comentpanel;
+        console.log('listcmtpanelstatus......', list[index].comentpanel)
+        localStorage.setItem('posts', JSON.stringify([...list]))
+        console.log('post......', list)
+        console.log("setShowCommentPanel........", showCommentPanel)
+        setStatus(!status)
+        setShowCommentPanel(!showCommentPanel)
 
+    }
+    useEffect(() => {
+        console.log("useeffecSetShowCommentPanel........", showCommentPanel)
+
+    })
+    const deletePost = (index) => {
+        const temp = JSON.parse(localStorage.getItem('posts')) || []
+        temp.splice(index, 1)
+        localStorage.setItem('posts', JSON.stringify([...temp]))
+        setStatus(!status)
+    }
+
+    const likeFn = (postid) => {
+        const posts = JSON.parse(localStorage.getItem('posts'));
+        const newPosts = posts.map((item) => {
+            if (item.postid === postid) {
+                item.likecount = item.likecount + 1
+            }
+            return item;
+        })
+        localStorage.setItem('posts', JSON.stringify(newPosts));
+        setPostLIke(!postlike)
     }
 
     return (
@@ -47,47 +104,40 @@ const Content = () => {
                         <input type="search" className='searchInput' placeholder=' Start Post' value={input} onChange={e => setInput(e.target.value)} />
                         <button className='postBtn' onClick={submitPost}>Add Post</button>
                     </div>
-                    <br></br>
-                    <i className="fa fa-picture-o photoIcon"><p className='photos'>Photos</p></i>
-                    <i className="fa fa-video-camera videosIcon" ><p className='video'>Video</p></i>
-                    <i className="fa fa-calendar eventsIcon" ><p className='events'>Events</p></i>
-                    <i className="fa fa-pencil-square-o articleIcon"><p className='article'>Article</p></i>
+                    <div className='PostSharinp'>
+                        URL :- <input type="search" className='searchInput' placeholder='Post image by url ' onChange={e => setImgInput(e.target.value)} />
+                        <button onClick={submitPost} className='postBtn ' >Add Post</button>
+                    </div>
                 </div>
-                <div className='PostSharinp'>
-                    URL :- <input type="search" className='searchInput' placeholder='Post image ' onChange={e => setImgInput(e.target.value)} />
-                    <button onClick={submitPost} className='postBtn' >Add Post</button>
-                </div>
-                <hr></hr>
                 <div>
-                    {post.map((item, index) => (
+                    {post && post.map((item, index) => (
                         <div>
                             <div className='postDiv'>
                                 <i className="fa fa-user-circle-o postME" ></i>
-                                <h2>{name}</h2>
-                                {/* <p className='testingPara'>This is Testing Para</p> */}
+                                <h2>{item.userid}</h2>
                                 <hr></hr>
-                                <h3 className='testingHeading'>{item.msg}</h3>
-                               {
-                                item.img && <div className='postImg flex justify-center '> <img src={item.img}  />  </div>
-                               }
-                                
+                                <h3 className='testingHeading'>{item.content}</h3>
+                                {
+                                    item.image && <div className='postImg flex justify-center '> <img src={item.image} style={{ width: '100%' }} />  </div>
+                                }
+
                                 <hr></hr>
-                                <i className="fa fa-thumbs-o-up likeArrow"></i> <i className="fa fa-thumbs-o-down dislikeArrow"></i>
+                                <i className="fa fa-thumbs-o-up likeArrow" onClick={() => likeFn(item.postid)}></i>
+                                <span>{item.likecount}</span>
                                 <i className="fa fa-comments commentArrow" onClick={() => { clickFn(index) }}><span>Comment</span></i>
-                                <i className="fa fa-retweet commentArrow"><span>Repost</span></i>
-                                <i className="fa fa-paper-plane commentArrow" ><span>Send</span></i>
                                 <i className="fa fa-trash commentArrow" onClick={() => { deletePost(index) }} ><span>Delete</span></i>
 
                             </div>
                             {
-                                item.clicked && <div className='commentDiv '>
-                                    <input onChange={(e) => setCmntInput(e.target.value)} placeholder='Write your comment here' /><button className='buttonCmt' onClick={() => submitCmntFn(index)}>comment</button>
+                                item.comentpanel && <div className='commentDiv '>
+                                    <input onChange={(e) => setCmntInput(e.target.value)} placeholder='Write your comment here' />
+                                    <button className='buttonCmt' onClick={() => submitCmntFn(item.id, index)}>Comment</button>
                                     {
-                                        item.coment.map((val) => (
-                                            <div>
-                                                <i className="fa fa-user-circle-o comntMe"><h5 className='h5'>{name}</h5><p>{val}</p></i>
-                                            </div>
-                                        ))
+                                        // item.coment.map((val) => (
+                                        //     <div>
+                                        //         <i className="fa fa-user-circle-o comntMe"><h5 className='h5'>{email}</h5><p>{val}</p></i>
+                                        //     </div>
+                                        //  ))
                                     }
                                 </div>
                             }
@@ -101,11 +151,3 @@ const Content = () => {
 }
 
 export default Content
-
-// {item.clicked && <ShareAble posts={post} setpost={setPost} index={index} />}
-
-
-
-
-
-{/* <span onClick={() => setLike(!like)}>{like ? <span>DisLike</span> : <span>Like</span>}</span> */ }

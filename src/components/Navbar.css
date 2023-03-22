@@ -1,92 +1,124 @@
-
-.left img{
+.left img {
     width: 38px;
     height: 29px;
 }
-nav{
+
+nav {
     /* padding: 0 120px; */
-    font-size:12px ;
+    font-size: 12px;
     padding-top: 14px;
 }
+
 @media screen and (max-width: 480px) {
-    .nav {flex-direction: column; width: 500px;padding: 2px;}
-    
-  }
-.search{
-    width: 90%;
+    .nav {
+        flex-direction: column;
+        width: 500px;
+        padding: 2px;
+    }
+
+}
+
+.search {
+    width: 140%;
     /* border-radius: 5px; */
     border: none;
     border-bottom: 1px solid rgba(128, 128, 128, 0.76);
-    
+
     font-size: 1.5vmax;
     color: rgb(61, 61, 61);
     outline: none;
     font-weight: 100;
-    margin-left: 10%;
+    margin-left: 20%;
+    border-radius: 7px;
 }
-.container{
-    position: sticky;
+
+.container {
+    position: fixed;
     background-color: #dbdbdb;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-   padding:0 3vw ;
-  font-size: 12px;
-  font-weight: bolder;
-  /* width: 100%; */
+    padding: 0 3vw;
+    font-size: 12px;
+    font-weight: bolder;
+    width: 94%;
     top: 0;
     height: 90px;
 }
+
 @media screen and (max-width: 480px) {
-    .container {height: 80px;padding: 0;width: 140%;}
-    
-  }
-nav ul li{
+    .container {
+        height: 80px;
+        padding: 0;
+        width: 140%;
+    }
+
+}
+
+nav ul li {
     list-style: none;
     padding: 0 12px;
 }
-.left{
-    width: 40%;
-   
+
+.left {
+    width: 60%;
+
 }
-.right{
-    width: 45%;
-   
+
+.right {
+    width: 20%;
+
 }
+
 @media screen and (max-width: 480px) {
-    .right {display: none;}
-    
-  }
-.faIconsIcon{
+    .right {
+        display: none;
+    }
+
+}
+
+.faIconsIcon {
     /* margin: 10px; */
     font-size: 28px;
     color: grey;
 }
-.faIconsIcon p{
+
+.faIconsIcon p {
     font-size: 13px;
     font-family: sans-serif;
 }
-.faIcons{
+
+.faIcons {
     /* margin: 10px 15px 10px 39px; */
     font-size: 20px;
     color: grey;
 }
-.faIcons p{
+
+.faIcons p {
     font-size: 13px;
     font-family: sans-serif;
 }
-.homeIcon{
+
+.homeIcon {
     /* margin-left: -4px; */
 }
-.networkIcon{
-     /* margin-left: -16px; */
+
+.networkIcon {
+    /* margin-left: -16px; */
 }
-.msgIcon{
-     /* margin-left: -16px; */
+
+.msgIcon {
+    /* margin-left: -16px; */
 
 }
-.notificationsIcon{
-     /* margin-left: -16px; */
+
+.notificationsIcon {
+    /* margin-left: -16px; */
 
 }
-.meIcon{
+
+.meIcon {
     /* margin-left: 4px; */
+}
+
+.logout {
+    cursor: pointer;
 }

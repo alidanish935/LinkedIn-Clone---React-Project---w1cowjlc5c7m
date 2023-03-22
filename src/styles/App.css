@@ -39,6 +39,7 @@
     background-color: blue;
     border: none;
     border-radius: 6px;
+    cursor: pointer;
   }
   .login__ordiv{
     display: flex;

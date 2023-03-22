@@ -1,7 +1,8 @@
 .leftSideBar{
-    position: sticky;
+    position: fixed;
     height: 500px;
-    width: 100%;
+    width: 20%;
+    margin-top: 100px;
     font-family: sans-serif;
 }
 /* @media screen and (max-width: 480px) {
