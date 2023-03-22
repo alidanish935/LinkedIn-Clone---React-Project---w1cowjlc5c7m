@@ -2,10 +2,12 @@ import React, { useEffect, useState } from 'react'
 import linkedInLogo from '../Images/linkedin-logo.png';
 import { Link, useNavigate } from 'react-router-dom'
 import './Login.css'
+import Home from './Home';
 
 const Login = () => {
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
+    const [authentication, setAuthentication] = useState(false)
     const navigate = useNavigate();
     console.log(name)
     console.log(password)
@@ -23,6 +25,7 @@ const Login = () => {
 
             let temp = JSON.parse(localStorage.getItem('users'))
             for (let i = 0; i < temp.length; i++) {
+                console.log('item.name', temp[i].name, 'item.password', temp[i].password)
                 if (temp[i].name !== name && temp[i].password !== password) {
                     alert('Please check your name or password')
                     break
@@ -48,7 +51,7 @@ const Login = () => {
                         <div className='signInHead'>Sign in</div>
                         <p className='stayUpdated'>Stay updated on your professional world</p>
 
-                        <input className='loginpage__text' type="text" placeholder='User Name ' onChange={e => setName(e.target.value)} /><br></br>
+                        <input className='loginpage__text' type="text" placeholder='Name ' onChange={e => setName(e.target.value)} /><br></br>
                         <input className='loginpage__text' placeholder='Password must be alpha numric' type="password" onChange={e => setPassword(e.target.value)} /><br></br>
 
                         <a className='forPass' href="">Forgot password?</a><br></br>
