@@ -1,36 +1,44 @@
-.MiddleBar{
+.MiddleBar {
     margin-top: 130px;
     height: 1000px;
     width: 50%;
 }
-.upperDiv{
+
+.upperDiv {
     height: 330px;
     width: 100%;
     margin: 40px 30px 0px 85px;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
-    background-color: aliceblue;   
+    background-color: aliceblue;
 }
-.upperDiv h3{
+
+.upperDiv h3 {
     margin: 20px 20px 30px 40px;
 }
- .connections{
+
+.connections {
     margin: 10px 0px 0px 10px;
 }
-.growYour{
+
+.growYour {
     margin: 10px 0px 10px 10px;
 }
-.upperDiv .access{
+
+.upperDiv .access {
     margin: 15px 0px 15px 10px;
     font-size: 13px;
 }
-.upperDiv .bookmark{
+
+.upperDiv .bookmark {
     margin: 10px 0px 0px 10px;
 }
-.upperDiv h3{
+
+.upperDiv h3 {
     margin-left: 13px;
 }
-.camera{
+
+.camera {
     height: 65px;
     width: 30%;
     border-radius: 50%;
@@ -39,27 +47,31 @@
     margin: 20px 0px 10px 70px;
 }
 
-.cameraIcon{
+.cameraIcon {
     font-size: 25px;
     margin: 20px 0px 0px 17px;
 }
-.lowerDiv{
+
+.lowerDiv {
     height: 280px;
     width: 65%;
     margin: 10px 30px 0px 85px;
     border: 1px solid rgb(202, 212, 188);
     border-radius: 10px;
-    background-color: aliceblue; 
+    background-color: aliceblue;
 }
-.lowerDiv p{
+
+.lowerDiv p {
     margin: 18px 0px 10px 10px;
     font-family: sans-serif;
 }
-.lowerDiv h5{
+
+.lowerDiv h5 {
     color: #0A66C2;
     margin: 15px 0px 10px 10px;
 }
-.PostShare{
+
+.PostShare {
     height: 120px;
     width: 48vw;
     background-color: aliceblue;
@@ -68,178 +80,207 @@
     margin-top: 40px;
     border: 1px solid rgb(202, 212, 188);
 }
-.PostSharinp{
-   
+
+.PostSharinp {
+
     width: 48vw;
     padding-left: 25px;
 }
-.shareIcon{
+
+.shareIcon {
     font-size: 40px;
     color: grey;
     margin: 10px 10px 0px 20px;
 }
-.searchInput{
+
+.searchInput {
     height: 38px;
     width: 73%;
     border-radius: 24px;
-    border: 1px solid  rgb(140, 143, 135);
-    margin-top: 15px ;
+    border: 1px solid rgb(140, 143, 135);
+    margin-top: 15px;
 }
-.photos{
+
+.photos {
     margin-left: -9px;
 }
-.video{
+
+.video {
     margin-left: -7px;
 
 }
-.events{
+
+.events {
     margin-left: -10px;
 
 }
-.article{
+
+.article {
     margin-left: -10px;
 
 }
-.postBtn{
+
+.postBtn {
     height: 35px;
     width: 10%;
-border-radius: 20px;
-background-color: #0A66C2;
-border: 0;
-color: #fff;
-margin-top: 17px;
-margin-left: 10px;
-cursor: pointer;
+    border-radius: 20px;
+    background-color: #0A66C2;
+    border: 0;
+    color: #fff;
+    margin-top: 17px;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
-.photoIcon{
-     font-size: 20px; 
+.photoIcon {
+    font-size: 20px;
     margin: 1px 50px 0px 50px;
     color: #0A66C2;
 }
-.photoIcon .photos{
+
+.photoIcon .photos {
     font-size: 15px;
     color: grey;
 }
-.videosIcon{
-    font-size: 22px; 
+
+.videosIcon {
+    font-size: 22px;
     margin: 5px 50px 0px 40px;
     color: green;
 }
-.videosIcon p{
+
+.videosIcon p {
     font-size: 15px;
     color: grey;
 }
-.eventsIcon{
-      font-size: 22px; 
+
+.eventsIcon {
+    font-size: 22px;
     margin: 5px 50px 0px 40px;
     color: orange;
 }
-.eventsIcon p{
+
+.eventsIcon p {
     font-size: 15px;
     color: grey;
 }
-.articleIcon{
-      font-size: 22px; 
+
+.articleIcon {
+    font-size: 22px;
     margin: 5px 40px 0px 40px;
     color: red;
 }
-.articleIcon p{
+
+.articleIcon p {
     font-size: 15px;
     color: grey;
 }
-.postDiv{
+
+.postDiv {
     /* height: 270px; */
     width: 47vw;
     border: 1px solid grey;
-    
+
     margin: 10px 0px 10px 7px;
 
-   
+
     border-radius: 20px;
     background-color: #fff;
 }
-.postImg{
-    width:'270px'
+
+.postImg {
+    width: '270px'
 }
-.postME{
+
+.postME {
     font-size: 29px;
     margin: 10px 0px 0px 20px;
 }
-.postDiv h2{
+
+.postDiv h2 {
     margin: 5px 0px 0px 20px;
 }
-.testingPara{
+
+.testingPara {
     margin: 10px 0px 5px 20px;
 }
-.testingHeading{
+
+.testingHeading {
     margin: 5px 0px 80px 20px;
 }
-.likeArrow{
+
+.likeArrow {
     font-size: 25px;
     margin: 10px 0px 10px 20px;
     color: blue;
     cursor: pointer;
 }
-.dislikeArrow{
+
+.dislikeArrow {
     font-size: 25px;
     margin: 10px 0px 10px 20px;
     color: red;
 }
-.commentArrow{
+
+.commentArrow {
     cursor: pointer;
     font-size: 25px;
     /* color: grey; */
 
     margin: 10px 0px 10px 40px;
 }
-.commentArrow span{
+
+.commentArrow span {
     font-size: 17px;
     /* color: grey; */
     margin: 5px 0px 10px 0px;
 
 }
-.commentDiv{
+
+.commentDiv {
     /* height: 70px; */
-     width: 47vw;
-     border: 1px solid grey;
-     margin: 10px 0px 10px 7px;
-     border-radius: 20px;
-     background-color: #fff;
-     padding-bottom: 20px;
- }
- .commentDiv input{
-     height: 30px;
-     width: 50%;
-     border-radius: 10px;
-     margin-left: 5px;
-     margin-top: 0px;
-     border: none;
-     /* background-color: antiquewhite; */
- }
- 
- .comntMe{
-     color: grey;
-     margin: 5px 0px 5px 10px;
- }
- .h5{
-     color: black;
-     margin: -13px 0px -15px 20px;
- 
- }
- .showComnt{
-     margin: -4px 0px 5px 13px;
- 
- }
- .buttonCmt{
+    width: 47vw;
+    border: 1px solid grey;
+    margin: 10px 0px 10px 7px;
+    border-radius: 20px;
+    background-color: #fff;
+    padding-bottom: 20px;
+}
+
+.commentDiv input {
+    height: 30px;
+    width: 50%;
+    border-radius: 10px;
+    margin-left: 5px;
+    margin-top: 0px;
+    border: none;
+    /* background-color: antiquewhite; */
+}
+
+.comntMe {
+    color: grey;
+    margin: 5px 0px 5px 10px;
+}
+
+.h5 {
+    color: black;
+    margin: -13px 0px -15px 20px;
+
+}
+
+.showComnt {
+    margin: -4px 0px 5px 13px;
+
+}
+
+.buttonCmt {
     height: 35px;
     width: 20%;
-border-radius: 20px;
-background-color: #0A66C2;
-border: 0;
-color: #fff;
-margin-top: 7px;
-margin-left: 28%;
-cursor: pointer;
+    border-radius: 20px;
+    background-color: #0A66C2;
+    border: 0;
+    color: #fff;
+    margin-top: 7px;
+    margin-left: 28%;
+    cursor: pointer;
 }
- 

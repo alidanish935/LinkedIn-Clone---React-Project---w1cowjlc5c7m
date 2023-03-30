@@ -37,6 +37,7 @@
     border: 1px solid #0395F6;
     background-color: #0395F6;
     color: #DBDBDB;
+    cursor: pointer;
   }
   .loginpage_signup{
     border: 1px solid #DBDBDB;

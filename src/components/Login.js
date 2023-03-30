@@ -22,21 +22,30 @@ const Login = () => {
             alert('Password must be alpha-numric')
         }
         else {
-
+            
+            let logstatus = true
             let temp = JSON.parse(localStorage.getItem('users'))
             for (let i = 0; i < temp.length; i++) {
                 console.log('item.name', temp[i].name, 'item.password', temp[i].password)
-                if (temp[i].name !== name && temp[i].password !== password) {
-                    alert('Please check your name or password')
-                    break
+                // if (temp[i].name !== name && temp[i].password !== password) {
+                //     alert('Please check your name or password')
+                //     break
 
-                } else if (temp[i].name === name && temp[i].password === password) {
+                // } else 
+                if (temp[i].name === name && temp[i].password === password) {
+                    logstatus = false;
                     alert("login successful.....")
                     localStorage.setItem('loggedUser', name)
                     setAuthentication(true);
                     navigate('/home')
                     break
                 }
+                // else{
+                //     alert("Please create an account or check your details")
+                // }
+            }
+            if(logstatus){
+                alert("Please create an account or check your details")
             }
         }
     }
