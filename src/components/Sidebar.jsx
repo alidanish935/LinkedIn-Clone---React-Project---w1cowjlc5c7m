@@ -20,7 +20,7 @@ const Sidebar = () => {
           {/* <p className='growYour'>Grow your network</p> */}
           <hr></hr>
           <Link to='https://www.linkedin.com/accessibility'> <p className='access'>Accessbility </p></Link>
-           <Link to='/functionality'> <p className='access'> functionality</p></Link>
+            <p className='access'> functionality</p>
           <hr></hr>
           <i className="fa fa-bookmark bookmark"> My Items</i>
         </div>
