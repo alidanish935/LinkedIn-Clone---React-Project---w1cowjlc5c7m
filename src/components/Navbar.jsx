@@ -25,8 +25,6 @@ const Navbar = () => {
           <i className="fa fa-user-circle-o faIcons" ><p className='meIcon'>{name}</p></i>
           <button className='logout' onClick={logoutFn}>Logout</button>
         </div>
-
-
       </nav>
 
     </div>

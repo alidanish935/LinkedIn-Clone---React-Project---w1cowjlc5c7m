@@ -1,15 +1,16 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Content from './Content'
 import Navbar from './Navbar'
 import RightSidebar from './RightSidebar'
 import Sidebar from './Sidebar'
 
 const Home = () => {
+ 
   return (
-    <div>
+    <div >
       <Navbar />
       <div className='flex space-between'>
-        <Sidebar />
+        <Sidebar  />
         <Content />
         <RightSidebar />
       </div>

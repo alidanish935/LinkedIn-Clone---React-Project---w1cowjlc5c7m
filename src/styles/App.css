@@ -1,4 +1,10 @@
+/* body{
 
+  background-color: aqua;
+} */
+.home{
+  background-color: aqua;
+}
 .flex{
     display: flex;
   }

@@ -27,9 +27,17 @@
 }
  .connections{
     margin: 10px 0px 0px 10px;
+    cursor: pointer;
+}
+.connections:hover{
+    color: rgb(0, 30, 255);
 }
 .growYour{
     margin: 10px 0px 10px 10px;
+    cursor: pointer;
+}
+.growYour:hover{
+    color: rgb(0, 30, 255);
 }
 .upperDiv .access{
     margin: 15px 0px 15px 10px;

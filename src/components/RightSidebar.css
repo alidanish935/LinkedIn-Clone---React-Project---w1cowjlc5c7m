@@ -27,11 +27,18 @@
 }
 .upperRight button{
     height: 35px;
-    width: 30%;
+    width: 32%;
     border-radius: 20px;
     margin: 0px 0px 10px 10px;
     background-color: #fff;
+    cursor: pointer;
 
+}
+.upperRight button:hover{
+    color: blue;
+}
+.followstatus{
+    color: blue;
 }
 .upperRight a{
     font-size: 13px;
